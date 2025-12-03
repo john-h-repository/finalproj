@@ -9,7 +9,6 @@ export class Title {
     }
 
     update() {
-        this.pencil.fillRect(10,10,10,10)
     }
 
 

@@ -1,3 +1,10 @@
-#myCanvas {
-    border: 10px solid gray;
+#canvas {
+ /* we dont need canvas styling where we goin ‼️‼️‼️ */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    /* PACKWATCH I HATE SCROLLBARS RIP YOU WONT BE MISSED */
+    overflow: hidden;
 }
