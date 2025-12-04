@@ -3,22 +3,24 @@ import { GameOver } from "./states/gameOver.js"
 import { Title } from "./states/title.js"
 import { Toolbox } from "./toolbox.js"
 import { star } from "./visuals/star.js";
+import { player } from "./elements/player.js";
 
 let canvas = document.getElementById("myCanvas")
 let pencil = canvas.getContext("2d")
 let toolbox = new Toolbox()
+let pressed = {};
 
 let game = new Game(canvas, pencil)
 let gameOver = new GameOver(canvas, pencil)
 let title = new Title(canvas, pencil)
+let plr = new player(canvas, pencil, pressed)
 
 let state = title
 
-let stars = [
+let stars = []
 
-]
 
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 0; i++) {
     let lol = stars.push(new star(canvas, pencil))
 }
 
@@ -36,26 +38,21 @@ function gameloop() {
     pencil.clearRect(0, 0, window.innerWidth, window.innerHeight)
     pencil.fillStyle = "black"
     pencil.fillRect(0, 0, window.innerWidth, window.innerHeight)
-    let last = performance.now()
-    let now = performance.now()
-    let delta = (now - last) / 16.666
-    last = now
+
     for (let i of stars) {
-        i.draw(Math.random()*(7-2.5)+2.5, delta)
-        requestAnimationFrame(animate)
+        i.draw(Math.random()*(4-1)+1)
+
         pencil.closePath()
-        console.log(stars.length)
     }
+    plr.move()
+    plr.draw()
+    requestAnimationFrame(gameloop)
 }
-setInterval(gameloop, 1000/60)
+requestAnimationFrame(gameloop)
 
-// let last = performance.now()
-
-// function animate() {
-//     let now = performance.now()
-//     let delta = (now - last) / 16.666
-//     last = now
-
-//     stars.forEach(s => s.draw(Math.random()*(7-2.5)+2.5, delta))
-//     requestAnimationFrame(animate)
-// }
+window.addEventListener("keydown", function(e) {
+    pressed[e.key.toLowerCase()] = true
+})
+window.addEventListener("keyup", function(e) {
+    pressed[e.key.toLowerCase()] = false
+})

@@ -14,13 +14,14 @@ export class star {
         this.pencil = pencil
       }
 
-    draw(move, delta) {
+    draw(move) {
         let colors = ["#FFECA1","#CBFDFF","#FFCBCB"]
 
         if (this.db == false) {
-            this.rad = Math.random()*(15-2.5)+2.5
+            this.rad = Math.random()*2.5+.5
+            console.log(this.rad)
             this.x = Math.random()*window.innerWidth
-            this.y = Math.random()*(window.innerHeight-20)+20
+            this.y = Math.random()*(window.innerHeight)
             if (Math.random() > .75) {
                 this.color = colors[Math.floor(Math.random()*colors.length)]
             }
@@ -32,7 +33,7 @@ export class star {
             this.x = 0-this.rad
         }
 
-        this.x+=this.speed * delta
+        this.x+=this.speed
 
         this.pencil.beginPath()
         this.pencil.arc(this.x, this.y, this.rad, 0, 2 * Math.PI);
