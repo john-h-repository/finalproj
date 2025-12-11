@@ -48,6 +48,8 @@ export class player {
 
         this.imgs.push(img1, img2, img3, img4, img5, img6, img7)
 
+        this.chosenImg = this.imgs[0]
+
         this.x = this.canvas.width * .2
         this.y = this.canvas.height * .5
 
