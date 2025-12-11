@@ -1,15 +1,14 @@
 export class player {
-    x = 512
-    y = 512
-    width = 50
-    height = 50
     canvas
     pencil
+    x
+    y
+    width = 50
+    height = 50
     ySpeed = 0
     xSpeed = 0
-    vertPower = .35
+    vertPower = .325
     hozPower = .05
-    velocity = 0
     maxY = 4
     maxX = 2
     movement
@@ -27,27 +26,30 @@ export class player {
         this.movement = movement
 
         const img1 = new Image()
-        img1.src = '../none.png'
+        img1.src = '../textures/none.png'
 
         const img2 = new Image()
-        img2.src = '../right.png'
+        img2.src = '../textures/right.png'
         
         const img3 = new Image()
-        img3.src = '../rightdown.png'
+        img3.src = '../textures/rightdown.png'
 
         const img4 = new Image()
-        img4.src = '../rightup.png'
+        img4.src = '../textures/rightup.png'
 
         const img5 = new Image()
-        img5.src = '../up.png'
+        img5.src = '../textures/up.png'
 
         const img6 = new Image()
-        img6.src = '../down.png'
+        img6.src = '../textures/down.png'
         
         const img7 = new Image()
-        img7.src = '../dead.png'
+        img7.src = '../textures/dead.png'
 
         this.imgs.push(img1, img2, img3, img4, img5, img6, img7)
+
+        this.x = this.canvas.width * .2
+        this.y = this.canvas.height * .5
 
         this.updateHitbox()
     }
@@ -79,10 +81,19 @@ collidesWithAsteroid(asteroid) {
         this.hitbox.height = this.height - paddingY * 2
     }
 
-    draw(dead) {
+    draw(dead, reset) {
+        console.log(this.x)
         if (!dead) {
             this.pencil.drawImage(this.chosenImg, this.x, this.y, this.width, this.height)
             return
+        }
+        if (reset) {
+            this.x = this.canvas.width * .2
+            this.y = this.canvas.height * .5
+            this.width = 50
+            this.height = 50
+            this.ySpeed = 0
+            this.xSpeed = 0
         }
 
         if (this.width <= 0 || this.height <= 0) return
@@ -91,8 +102,8 @@ collidesWithAsteroid(asteroid) {
         this.pencil.translate(this.x + this.width / 2, this.y + this.height / 2)
         if (this.rotdb == false) {
             this.deadrot = Math.random() * Math.PI * 2
-            this.width -=2
-            this.height -=2
+            this.width -=3
+            this.height -=3
             this.rotdb = true
             setTimeout(() => {
                 this.rotdb = false

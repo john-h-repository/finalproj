@@ -20,10 +20,10 @@ export class asteroid {
         this.speedX = speed
         
         const img1 = new Image()
-        img1.src = '../as1.png'
+        img1.src = '../textures/as1.png'
 
         const img2 = new Image()
-        img2.src = '../as2.png'
+        img2.src = '../textures/as2.png'
 
         this.imgs.push(img1, img2)
 
