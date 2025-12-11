@@ -16,10 +16,10 @@ export class star {
         this.pencil = pencil
 
         const img1 = new Image()
-        img1.src = '../textures/star06.png'
+        img1.src = './textures/star06.png'
 
         const img2 = new Image()
-        img2.src = '../textures/star08.png'
+        img2.src = './textures/star08.png'
 
         this.imgs.push(img1, img2)
     }

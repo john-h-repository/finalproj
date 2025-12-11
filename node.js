@@ -42,10 +42,7 @@ for (let i = 0; i < 750; i++) {
 }
 
 const skybox = new Image()
-skybox.src = '../textures/skybox.png'
-let skyboxX = 0
-let skyboxSpeed = .5
-
+skybox.src = '.
 function drawSkybox() {
     if (!skybox.complete) return
 
