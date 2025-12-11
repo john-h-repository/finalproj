@@ -82,7 +82,6 @@ collidesWithAsteroid(asteroid) {
     }
 
     draw(dead, reset) {
-        console.log(this.x)
         if (!dead) {
             this.pencil.drawImage(this.chosenImg, this.x, this.y, this.width, this.height)
             return

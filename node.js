@@ -37,6 +37,7 @@ function setup() {
     sizerate = 100
     speedrate = 5
     plr.draw(dead, true)
+    asteroids = []
     dead = false
 
     //asteroid difficulty increaser
