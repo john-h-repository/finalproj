@@ -35,7 +35,6 @@ export class menu02 {
             this.isHS = true
             localStorage.setItem("highScore", score)
         }
-        console.log(this.isHS )
 
         this.hue += this.hueSpeed
         if (this.hue > 360) this.hue -= 360

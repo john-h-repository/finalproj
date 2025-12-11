@@ -46,7 +46,6 @@ export class star {
             baked.globalCompositeOperation = 'source-in'
             baked.fillStyle = this.color
             baked.fillRect(0, 0, this.rad*15, this.rad*15)
-            this.rotation = Math.random() * Math.PI * 2
 
             this.db = true
         }
