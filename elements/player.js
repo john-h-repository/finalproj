@@ -26,25 +26,25 @@ export class player {
         this.movement = movement
 
         const img1 = new Image()
-        img1.src = '../textures/none.png'
+        img1.src = './textures/none.png'
 
         const img2 = new Image()
-        img2.src = '../textures/right.png'
+        img2.src = './textures/right.png'
         
         const img3 = new Image()
-        img3.src = '../textures/rightdown.png'
+        img3.src = './textures/rightdown.png'
 
         const img4 = new Image()
-        img4.src = '../textures/rightup.png'
+        img4.src = './textures/rightup.png'
 
         const img5 = new Image()
-        img5.src = '../textures/up.png'
+        img5.src = './textures/up.png'
 
         const img6 = new Image()
-        img6.src = '../textures/down.png'
+        img6.src = './textures/down.png'
         
         const img7 = new Image()
-        img7.src = '../textures/dead.png'
+        img7.src = './textures/dead.png'
 
         this.imgs.push(img1, img2, img3, img4, img5, img6, img7)
 
